@@ -1,0 +1,86 @@
+# Max2Mtl Version 4.0 Mar 10th, 2001
+# 
+newmtl Robot_arm1
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.480000 0.480000 0.480000
+Ks 0.090000 0.090000 0.090000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Texture\\Robot_arm1.dds
+map_Bump Texture\\Robot_arm1.dds
+
+
+newmtl Robot_arm2
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.480000 0.480000 0.480000
+Ks 0.090000 0.090000 0.090000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Texture\\Robot_arm2_d.dds
+map_Bump Texture\\Robot_arm2_d.dds
+
+
+newmtl Robot_head
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.480000 0.480000 0.480000
+Ks 0.090000 0.090000 0.090000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Texture\\Robot_head_d.dds
+map_Bump Texture\\Robot_head_d.dds
+
+
+newmtl Robot_helmet
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.480000 0.480000 0.480000
+Ks 0.090000 0.090000 0.090000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Texture\\Robot_helmet_d.dds
+map_Bump Texture\\Robot_helmet_d.dds
+
+
+newmtl Robot_leg1
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.480000 0.480000 0.480000
+Ks 0.090000 0.090000 0.090000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Texture\\Robot_leg1_d.dds
+map_Bump Texture\\Robot_leg1_d.dds
+
+
+newmtl Robot_leg2
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.480000 0.480000 0.480000
+Ks 0.090000 0.090000 0.090000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Texture\\Robot_leg2_d.dds
+map_Bump Texture\\Robot_leg2_d.dds
+
+
+newmtl Robot_torso
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.480000 0.480000 0.480000
+Ks 0.090000 0.090000 0.090000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Texture\\Robot_arm2_d.dds
+map_Bump Texture\\Robot_arm2_d.dds
+
+

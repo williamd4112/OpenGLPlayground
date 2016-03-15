@@ -1,0 +1,14 @@
+# Max2Mtl Version 4.0 Mar 10th, 2001
+# 
+newmtl Robot_sword
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.480000 0.480000 0.480000
+Ks 0.450000 0.450000 0.450000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Texture\\Robot_sword_d.dds
+map_Bump Texture\\Robot_sword_d.dds
+
+

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5B342995-6CD2-4D93-A8F6-84B13BE220FD}</ProjectGuid>
+    <RootNamespace>OpenGLPlayground</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)\freeglut\include;$(SolutionDir)\glew\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\glew-1.13.0\lib\Release\Win32;C:\Program Files\Assimp\lib\x86;C:\Users\User\Documents\Visual Studio 2015\Projects\OpenGLPlayground\OpenGLPlayground\ImageMagick-6;C:\Users\User\Documents\Visual Studio 2015\Projects\OpenGLPlayground\OpenGLPlayground\soil\Simple OpenGL Image Library\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LibraryPath>C:\glew-1.13.0\lib\Release\Win32;C:\Program Files\Assimp\lib\x86;C:\Users\User\Documents\Visual Studio 2015\Projects\OpenGLPlayground\OpenGLPlayground\ImageMagick-6;C:\Users\User\Documents\Visual Studio 2015\Projects\OpenGLPlayground\OpenGLPlayground\soil\Simple OpenGL Image Library\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\Program Files\Assimp\include;C:\Users\User\Documents\Visual Studio 2015\Projects\OpenGLPlayground\OpenGLPlayground\ImageMagick-6;C:\glm;C:\Users\User\Documents\Visual Studio 2015\Projects\OpenGLPlayground\OpenGLPlayground\soil\Simple OpenGL Image Library\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)\freeglut\lib;$(SolutionDir)\glew\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp.lib;glew32.lib;CORE_DB_Magick++_.lib;CORE_RL_Magick++_.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>C:\Program Files\Assimp\include;C:\Users\User\Documents\Visual Studio 2015\Projects\OpenGLPlayground\OpenGLPlayground\ImageMagick-6;C:\glm;C:\Users\User\Documents\Visual Studio 2015\Projects\OpenGLPlayground\OpenGLPlayground\soil\Simple OpenGL Image Library\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>assimp.lib;glew32.lib;CORE_DB_Magick++_.lib;CORE_RL_Magick++_.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="camera.cpp" />
+    <ClCompile Include="GLData.cpp" />
+    <ClCompile Include="GLMesh.cpp" />
+    <ClCompile Include="GLMeshObject.cpp" />
+    <ClCompile Include="GLTextureFactory.cpp" />
+    <ClCompile Include="GLVertexObject.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="math_3d.cpp" />
+    <ClCompile Include="ogldev_basic_mesh.cpp" />
+    <ClCompile Include="ogldev_skinned_mesh.cpp" />
+    <ClCompile Include="ogldev_texture.cpp" />
+    <ClCompile Include="ogldev_util.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GLData.hpp" />
+    <ClInclude Include="GLMesh.h" />
+    <ClInclude Include="GLMeshObject.h" />
+    <ClInclude Include="GLTextureFactory.h" />
+    <ClInclude Include="GLVertexObject.h" />
+    <ClInclude Include="ogldev_basic_mesh.h" />
+    <ClInclude Include="ogldev_camera.h" />
+    <ClInclude Include="ogldev_keys.h" />
+    <ClInclude Include="ogldev_math_3d.h" />
+    <ClInclude Include="ogldev_pipeline.h" />
+    <ClInclude Include="ogldev_skinned_mesh.h" />
+    <ClInclude Include="ogldev_texture.h" />
+    <ClInclude Include="ogldev_types.h" />
+    <ClInclude Include="ogldev_util.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shader.fs" />
+    <None Include="shader.vs" />
+    <None Include="SimpleVertexShader.glsl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
