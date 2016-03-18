@@ -53,7 +53,7 @@ public:
 	static void Keyboard(unsigned char key, int x, int y);
 	static void Special(int key, int x, int y);
 	static void Mouse(int button, int state, int x, int y);
-	static void MouseWheel(int wheel, int direction, int x, int y);
+	static void MouseWheel(int wheel, int position, int x, int y);
 	static void MouseMotion(int x, int y);
 private:
 	static GlutWrapper *instance;

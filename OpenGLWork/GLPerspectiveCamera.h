@@ -1,10 +1,10 @@
 #pragma once
 
-#include <glm\glm.hpp>
-#include <GL\freeglut.h>
-
 #include "Transform.h"
 #include "GlutRenderable.h"
+
+#include <glm\glm.hpp>
+#include <GL\freeglut.h>
 
 class GLPerspectiveCamera
 	: public GlutRenderable
@@ -31,7 +31,7 @@ public:
 	void SetZfar(GLfloat zFar) { config.zFar = zFar; }
 	void SetAspect(GLfloat aspect) { config.aspect = aspect; }
 	Transform &GetTransform() { return transform; }
-
+	PerspectiveConfig &GetConfig() { return config; }
 	void RenderShader();
 	void RenderFixedPipeline();
 	void FinishRenderFixedPipeline();

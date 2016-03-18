@@ -69,21 +69,21 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>C:\Program Files\Assimp\lib\x86;C:\glew-1.13.0\lib\Release\Win32;C:\freeglut\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Program Files\Assimp\lib\x86;C:\glew-1.13.0\lib\Release\Win32;C:\Users\User\Documents\Visual Studio 2015\Projects\OpenGLPlayground\OpenGLPlayground\soil\Simple OpenGL Image Library\lib;C:\freeglut\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LibraryPath>C:\Program Files\Assimp\lib\x86;C:\glew-1.13.0\lib\Release\Win32;C:\freeglut\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Program Files\Assimp\lib\x86;C:\glew-1.13.0\lib\Release\Win32;C:\Users\User\Documents\Visual Studio 2015\Projects\OpenGLPlayground\OpenGLPlayground\soil\Simple OpenGL Image Library\lib;C:\freeglut\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files\Assimp\include\assimp;C:\glew-1.13.0\include;C:\glm;C:\freeglut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\User\Documents\Visual Studio 2015\Projects\OpenGLPlayground\OpenGLPlayground\soil\Simple OpenGL Image Library\src;C:\Program Files\Assimp\include\assimp;C:\glew-1.13.0\include;C:\glm;C:\freeglut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>freeglut.lib;glew32.lib;glew32s.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>freeglut.lib;glew32.lib;glew32s.lib;assimp.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -103,13 +103,13 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files\Assimp\include\assimp;C:\glew-1.13.0\include;C:\glm;C:\freeglut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\User\Documents\Visual Studio 2015\Projects\OpenGLPlayground\OpenGLPlayground\soil\Simple OpenGL Image Library\src;C:\Program Files\Assimp\include\assimp;C:\glew-1.13.0\include;C:\glm;C:\freeglut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>freeglut.lib;glew32.lib;glew32s.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>freeglut.lib;glew32.lib;glew32s.lib;assimp.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -127,20 +127,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FileUtil.cpp" />
+    <ClCompile Include="GLLegacyLight.cpp" />
+    <ClCompile Include="GLMaterial.cpp" />
     <ClCompile Include="GLPerspectiveCamera.cpp" />
     <ClCompile Include="GlutRenderable.cpp" />
     <ClCompile Include="GlutTransfromable.cpp" />
     <ClCompile Include="GlutWrapper.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="GLMesh.cpp" />
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FileUtil.h" />
+    <ClInclude Include="GLLegacyLight.h" />
+    <ClInclude Include="GLMaterial.h" />
     <ClInclude Include="GLPerspectiveCamera.h" />
     <ClInclude Include="GlutRenderable.h" />
     <ClInclude Include="GlutTransfromable.h" />
     <ClInclude Include="GlutWrapper.h" />
-    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="GLMesh.h" />
     <ClInclude Include="Transform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

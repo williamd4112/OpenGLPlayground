@@ -18,9 +18,6 @@
     <ClCompile Include="main.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>原始程式檔</Filter>
-    </ClCompile>
     <ClCompile Include="GlutWrapper.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
@@ -36,11 +33,20 @@
     <ClCompile Include="Transform.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
+    <ClCompile Include="GLLegacyLight.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="FileUtil.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="GLMaterial.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="GLMesh.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Mesh.h">
-      <Filter>標頭檔</Filter>
-    </ClInclude>
     <ClInclude Include="GlutWrapper.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
@@ -54,6 +60,18 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="GLLegacyLight.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="FileUtil.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="GLMaterial.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="GLMesh.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>
