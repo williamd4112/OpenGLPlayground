@@ -4,6 +4,7 @@
 
 #include "glm\gtc\matrix_transform.hpp"
 #include "glm\gtc\quaternion.hpp"
+#include "glm\gtc\type_ptr.hpp"
 
 using namespace glm;
 
@@ -39,7 +40,9 @@ void Transform::PushTransformMatrix()
 {
 	glPushMatrix();
 	glMatrixMode(GL_MODELVIEW);
-	glLoadMatrixf((const GLfloat*)&transformMatrix);
+	glm::mat4 transpose_transformMatrix((glm::translate(mat4(1.0f), position)));
+	glLoadIdentity();
+	glMultMatrixf(glm::value_ptr(transformMatrix));
 }
 
 void Transform::PopTransformMatrix()
@@ -96,5 +99,5 @@ void Transform::updateTransformMatrix()
 	// Scale matrix
 	glm::mat4 scaleMatrix = glm::scale(mat4(1.0f), scale);
 
-	transformMatrix = transformMatrix * rotateMatrix * scaleMatrix;
+	transformMatrix = translateMatrix  * rotateMatrix * scaleMatrix;
 }

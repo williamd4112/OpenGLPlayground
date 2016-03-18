@@ -18,11 +18,8 @@ void GLMesh::Load(std::string filepath)
 	bool result = false;
 	if (scene)
 	{
-		//glGenVertexArrays(1, &vao);
-		//glBindVertexArray(vao);
 		LoadScene(scene);
 		LoadMaterial(scene, filepath);
-		//glBindVertexArray(0);
 	}
 	else
 	{
@@ -65,7 +62,6 @@ void GLMesh::RenderFixedPipeline()
 void GLMesh::LoadScene(const aiScene * scene)
 {
 	entries.resize(scene->mNumMeshes);
-	//materials.resize(scene->mNumMaterials);
 
 	for (int i = 0; i < entries.size(); i++)
 	{

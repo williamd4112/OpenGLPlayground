@@ -130,6 +130,7 @@
     <ClCompile Include="FileUtil.cpp" />
     <ClCompile Include="GLLegacyLight.cpp" />
     <ClCompile Include="GLMaterial.cpp" />
+    <ClCompile Include="GLMeshObject.cpp" />
     <ClCompile Include="GLPerspectiveCamera.cpp" />
     <ClCompile Include="GlutRenderable.cpp" />
     <ClCompile Include="GlutTransfromable.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="FileUtil.h" />
     <ClInclude Include="GLLegacyLight.h" />
     <ClInclude Include="GLMaterial.h" />
+    <ClInclude Include="GLMeshObject.h" />
     <ClInclude Include="GLPerspectiveCamera.h" />
     <ClInclude Include="GlutRenderable.h" />
     <ClInclude Include="GlutTransfromable.h" />

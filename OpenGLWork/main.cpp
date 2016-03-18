@@ -1,7 +1,6 @@
 #include <iostream>
 
-//#include "MeshGroup.h"
-#include "GLMesh.h"
+#include "GLMeshObject.h"
 #include "GLPerspectiveCamera.h"
 #include "GLLegacyLight.h"
 
@@ -32,6 +31,7 @@ static void Reshape(int w, int h);
 static void Timer(int t);
 static void Keyboard(unsigned char key, int x, int y);
 static void Special(int key, int x, int y);
+static void MouseWheel(int, int, int, int);
 
 static GLPerspectiveCamera camera(60.0f, 0.3f, 1000.0f, (640 / 480));
 static GLLegacyLight light(
@@ -40,7 +40,7 @@ static GLLegacyLight light(
 	glm::vec4(1.0, 1.0, 1.0, 1.0),
 	glm::vec4(5.0, 5.0, 5.0, 1.0));
 
-static GLMesh mesh;
+static GLMeshObject mesh;
 
 int main(int argc, char *argv[])
 {
@@ -51,10 +51,11 @@ int main(int argc, char *argv[])
 		GlutWrapper::SetTimerFunction(Timer);
 		GlutWrapper::SetKeyboardFunction(Keyboard);
 		GlutWrapper::SetSpecialFunction(Special);
+		GlutWrapper::SetMouseWheelFunction(MouseWheel);
 		
+		mesh.Load("resource/Robot Warrior/Robot Warrior.obj");
 		camera.GetTransform().Translate(glm::vec3(0, 0, 10));
 		camera.GetTransform().Rotate(glm::vec3(0.2, 0, 0));
-		mesh.Load("resource/Robot Warrior/Robot Warrior.obj");
 
 		GlutWrapper::Start();
 		GlutWrapper::Close();
@@ -95,7 +96,7 @@ static void Reshape(int w, int h)
 
 static void Timer(int t)
 {
-	float time = glutGet(GLUT_ELAPSED_TIME) * 0.01f;
+	float time = glutGet(GLUT_ELAPSED_TIME) * 0.001f;
 	light.position.x = 10 *std::cos(time);
 	light.position.z = 10 *std::sin(time);
 	glutPostRedisplay();
@@ -109,16 +110,22 @@ static void Keyboard(unsigned char key, int x, int y)
 	switch (key)
 	{
 	case 'A':case'a':
-		/*camera.GetTransform().Translate(forward * scalar);*/
+		mesh.GetTransform().Translate(glm::vec3(-scalar, 0, 0));
 		break;
 	case 'D':case'd':
-		/*camera.GetTransform().Translate(glm::vec3(scalar, 0, 0));*/
+		mesh.GetTransform().Translate(glm::vec3(scalar, 0, 0));
 		break;
 	case 'W':case'w':
-		camera.GetTransform().Translate(forward * -scalar);
+		mesh.GetTransform().Translate(glm::vec3(0, scalar, 0));
 		break;
 	case 'S':case's':
-		camera.GetTransform().Translate(forward * scalar);
+		mesh.GetTransform().Translate(glm::vec3(0, -scalar, 0));
+		break;
+	case 'Q':case'q':
+		mesh.GetTransform().Rotate(glm::vec3(0, -scalar, 0));
+		break;
+	case 'E':case'e':
+		mesh.GetTransform().Rotate(glm::vec3(0, scalar, 0));
 		break;
 	default:
 		break;
@@ -145,4 +152,14 @@ static void Special(int key, int x, int y)
 	default:
 		break;
 	}
+}
+
+static void MouseWheel(int wheel, int position, int x, int y)
+{
+	static float scalar = 0.1f;
+	Transform &transform = camera.GetTransform();
+	if (position < 0)
+		transform.Translate(transform.Orientation() * scalar);
+	else if (position > 0)
+		transform.Translate(transform.Orientation() * -scalar);
 }
