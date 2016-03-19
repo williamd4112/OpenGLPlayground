@@ -128,10 +128,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FileUtil.cpp" />
+    <ClCompile Include="GLAlgorithm.cpp" />
+    <ClCompile Include="GLGeometry.cpp" />
+    <ClCompile Include="GLKeyFrameAnimation.cpp" />
     <ClCompile Include="GLLegacyLight.cpp" />
     <ClCompile Include="GLMaterial.cpp" />
     <ClCompile Include="GLMeshObject.cpp" />
+    <ClCompile Include="GLObject.cpp" />
     <ClCompile Include="GLPerspectiveCamera.cpp" />
+    <ClCompile Include="GLShaderLight.cpp" />
+    <ClCompile Include="GLShaderPipeline.cpp" />
     <ClCompile Include="GlutRenderable.cpp" />
     <ClCompile Include="GlutTransfromable.cpp" />
     <ClCompile Include="GlutWrapper.cpp" />
@@ -141,15 +147,25 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileUtil.h" />
+    <ClInclude Include="GLAlgorithm.h" />
+    <ClInclude Include="GLGeometry.h" />
+    <ClInclude Include="GLKeyFrameAnimation.h" />
     <ClInclude Include="GLLegacyLight.h" />
     <ClInclude Include="GLMaterial.h" />
     <ClInclude Include="GLMeshObject.h" />
+    <ClInclude Include="GLObject.h" />
     <ClInclude Include="GLPerspectiveCamera.h" />
+    <ClInclude Include="GLShaderLight.h" />
+    <ClInclude Include="GLShaderPipeline.h" />
     <ClInclude Include="GlutRenderable.h" />
     <ClInclude Include="GlutTransfromable.h" />
     <ClInclude Include="GlutWrapper.h" />
     <ClInclude Include="GLMesh.h" />
     <ClInclude Include="Transform.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shader.fs" />
+    <None Include="shader.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

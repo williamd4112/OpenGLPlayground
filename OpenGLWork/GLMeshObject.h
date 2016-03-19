@@ -1,11 +1,13 @@
 #pragma once
 
+#include <vector>
 #include "GLMesh.h"
 #include "Transform.h"
 #include "GlutRenderable.h"
+#include "GLObject.h"
 
 class GLMeshObject
-	: public GlutRenderable
+	: public GlutRenderable, public GLObject
 {
 public:
 	GLMeshObject();
@@ -14,9 +16,11 @@ public:
 	void Load(std::string filepath);
 	void RenderShader();
 	void RenderFixedPipeline();
-	Transform &GetTransform() { return transform; }
+	void AddChild(GLMeshObject  *);
+	GLMesh::GLMeshEntry &MeshEntry(int i) { return mesh.MeshEntry(i); }
+	const GLMesh &Mesh() const { return mesh; }
 private:
 	GLMesh mesh;
-	Transform transform;
+	std::vector<GLMeshObject *> children;
 };
 

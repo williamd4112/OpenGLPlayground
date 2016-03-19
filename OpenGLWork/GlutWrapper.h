@@ -1,6 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include <GL\glew.h>
+#include <GL\freeglut.h>
 
 typedef void (*DisplayFunc)();
 typedef void (*TimerFunc)(int);
@@ -37,6 +39,10 @@ public:
 
 	static void Setup(int *argc, char **argv, int _x, int _y, int _w, int _h, float _frameRate);
 	static GlutWrapper &GetInstance();
+	static GLuint GetShaderProgram();
+	static GLuint LoadShader(GLenum shaderType, const char *filepath);
+	static std::string ParseShaderSource(const char *filepath);
+	static void CreateShaderProgram(const char *vshaderFile, const char *fshaderFile);
 	static void SetDisplayFunction(DisplayFunc);
 	static void SetTimerFunction(TimerFunc);
 	static void SetReshapeFunction(ReshapeFunc);

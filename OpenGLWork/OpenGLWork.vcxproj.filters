@@ -48,6 +48,24 @@
     <ClCompile Include="GLMeshObject.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
+    <ClCompile Include="GLShaderLight.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="GLShaderPipeline.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="GLGeometry.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="GLKeyFrameAnimation.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="GLObject.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAlgorithm.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GlutWrapper.h">
@@ -80,5 +98,31 @@
     <ClInclude Include="GLMeshObject.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
+    <ClInclude Include="GLShaderLight.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="GLShaderPipeline.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="GLGeometry.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="GLKeyFrameAnimation.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="GLObject.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="GLAlgorithm.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shader.fs">
+      <Filter>標頭檔</Filter>
+    </None>
+    <None Include="shader.vs">
+      <Filter>標頭檔</Filter>
+    </None>
   </ItemGroup>
 </Project>

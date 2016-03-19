@@ -19,9 +19,12 @@ public:
 	void Translate(const glm::vec3 v);
 	void Rotate(const glm::vec3 eulerAngles);
 	void Scale(const glm::vec3 v);
-	const glm::vec3 &Position() { return position; }
-	const glm::vec3 &Rotation() { return rotation; }
-	const glm::vec3 &Scale() { return scale; }
+	void TranslateTo(const glm::vec3 v);
+	void RotateTo(const glm::vec3 eulerAngles);
+	void ScaleTo(const glm::vec3 v);
+	const glm::vec3 &Position() const { return position; }
+	const glm::vec3 &Rotation() const { return rotation; }
+	const glm::vec3 &Scale() const { return scale; }
 	const glm::vec3 Orientation();
 private:
 	glm::vec3 position;

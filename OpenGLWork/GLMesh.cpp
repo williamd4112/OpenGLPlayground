@@ -29,6 +29,30 @@ void GLMesh::Load(std::string filepath)
 
 void GLMesh::RenderShader()
 {
+	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
+	glEnableVertexAttribArray(2);
+
+	for (unsigned int i = 0; i < entries.size(); i++) {
+		glBindBuffer(GL_ARRAY_BUFFER, entries[i].vbo);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)12);
+		glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)20);
+
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, entries[i].ibo);
+
+		const unsigned int MaterialIndex = entries[i].materialIndex;
+
+		if (MaterialIndex < materials.size()) {
+			materials[entries[i].materialIndex].Bind(GL_TEXTURE_2D);
+		}
+
+		glDrawElements(GL_TRIANGLES, entries[i].numIndices, GL_UNSIGNED_INT, 0);
+	}
+
+	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
+	glDisableVertexAttribArray(2);
 }
 
 void GLMesh::RenderFixedPipeline()
@@ -50,7 +74,9 @@ void GLMesh::RenderFixedPipeline()
 		if (MaterialIndex < materials.size()) {
 			materials[entries[i].materialIndex].Bind(GL_TEXTURE_2D);
 		}
+		entries[i].localTransform.PushTransformMatrix();
 		glDrawElements(GL_TRIANGLES, entries[i].numIndices, GL_UNSIGNED_INT, 0);
+		entries[i].localTransform.PopTransformMatrix();
 		
 	}
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -85,6 +111,12 @@ void GLMesh::LoadScene(const aiScene * scene)
 				Vertex(glm::vec3(pos->x, pos->y, pos->z),
 					glm::vec2(texcoord->x, texcoord->y),
 					glm::vec3(normal->x, normal->y, normal->z)));
+			bound.minBound.x = std::min(pos->x, bound.minBound.x);
+			bound.minBound.y = std::min(pos->y, bound.minBound.y);
+			bound.minBound.z = std::min(pos->z, bound.minBound.z);
+			bound.maxBound.x = std::max(pos->x, bound.maxBound.x);
+			bound.maxBound.y = std::max(pos->y, bound.maxBound.y);
+			bound.maxBound.z = std::max(pos->z, bound.maxBound.z);
 		}
 
 		for (int j = 0; j < mesh->mNumFaces; j++)

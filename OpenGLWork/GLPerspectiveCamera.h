@@ -4,6 +4,7 @@
 #include "GlutRenderable.h"
 
 #include <glm\glm.hpp>
+#include <GL\glew.h>
 #include <GL\freeglut.h>
 
 class GLPerspectiveCamera
@@ -32,6 +33,7 @@ public:
 	void SetAspect(GLfloat aspect) { config.aspect = aspect; }
 	Transform &GetTransform() { return transform; }
 	PerspectiveConfig &GetConfig() { return config; }
+	glm::mat4 GetViewProjectionMatrix();
 	void RenderShader();
 	void RenderFixedPipeline();
 	void FinishRenderFixedPipeline();

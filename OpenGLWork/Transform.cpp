@@ -40,8 +40,6 @@ void Transform::PushTransformMatrix()
 {
 	glPushMatrix();
 	glMatrixMode(GL_MODELVIEW);
-	glm::mat4 transpose_transformMatrix((glm::translate(mat4(1.0f), position)));
-	glLoadIdentity();
 	glMultMatrixf(glm::value_ptr(transformMatrix));
 }
 
@@ -68,12 +66,30 @@ void Transform::Scale(const glm::vec3 v)
 	updateTransformMatrix();
 }
 
+void Transform::TranslateTo(const glm::vec3 v)
+{
+	position = v;
+	updateTransformMatrix();
+}
+
+void Transform::RotateTo(const glm::vec3 eulerAngles)
+{
+	rotation = eulerAngles;
+	updateTransformMatrix();
+}
+
+void Transform::ScaleTo(const glm::vec3 v)
+{
+	scale = v;
+	updateTransformMatrix();
+}
+
 const glm::vec3 Transform::Orientation()
 {
 	// Rotation matrix
-	glm::quat qPitch = glm::angleAxis(rotation.x, glm::vec3(1, 0, 0));
-	glm::quat qYaw = glm::angleAxis(rotation.y, glm::vec3(0, 1, 0));
-	glm::quat qRoll = glm::angleAxis(rotation.z, glm::vec3(0, 0, 1));
+	glm::quat qPitch = glm::angleAxis(radians(rotation.x), glm::vec3(1, 0, 0));
+	glm::quat qYaw = glm::angleAxis(radians(rotation.y), glm::vec3(0, 1, 0));
+	glm::quat qRoll = glm::angleAxis(radians(rotation.z), glm::vec3(0, 0, 1));
 
 	glm::quat orientation = qPitch * qYaw * qRoll;
 	orientation = glm::normalize(orientation);
@@ -88,9 +104,9 @@ void Transform::updateTransformMatrix()
 	glm::mat4 translateMatrix = glm::translate(mat4(1.0f), position);
 
 	// Rotation matrix
-	glm::quat qPitch = glm::angleAxis(rotation.x, glm::vec3(1, 0, 0));
-	glm::quat qYaw = glm::angleAxis(rotation.y, glm::vec3(0, 1, 0));
-	glm::quat qRoll = glm::angleAxis(rotation.z, glm::vec3(0, 0, 1));
+	glm::quat qPitch = glm::angleAxis(radians(rotation.x), glm::vec3(1, 0, 0));
+	glm::quat qYaw = glm::angleAxis(radians(rotation.y), glm::vec3(0, 1, 0));
+	glm::quat qRoll = glm::angleAxis(radians(rotation.z), glm::vec3(0, 0, 1));
 
 	glm::quat orientation = qPitch * qYaw * qRoll;
 	orientation = glm::normalize(orientation);
@@ -99,5 +115,5 @@ void Transform::updateTransformMatrix()
 	// Scale matrix
 	glm::mat4 scaleMatrix = glm::scale(mat4(1.0f), scale);
 
-	transformMatrix = translateMatrix  * rotateMatrix * scaleMatrix;
+	transformMatrix = translateMatrix * rotateMatrix * scaleMatrix;
 }
